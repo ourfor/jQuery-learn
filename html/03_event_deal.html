@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery事件处理</title>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+        <script src="../lib/jquery.js"></script>
+    </head>
+    <body>
+        <button id="btn">点击我</button>
+        <script>
+            // window.onload = function(){
+            //     // dom 0 级 事件只能绑定一个，绑定多个会发生覆盖
+            //     let btn = document.getElementById('btn');
+            //     btn.onclick = function(){
+            //         console.log("dom 0 级事件绑定方式");
+            //         // this指向绑定事件dom对象
+            //         console.log(this.innerText);
+            //         // this 与event.target不同
+                    
+            //     };
+
+
+            //     // dom 2 级事件绑定方式，可以绑定多个事件，但是事件的执行顺序不能保证
+            //     btn.addEventListener("click",()=>{
+            //         console.log("dom 2 级事件绑定定方式 事件1");
+            //     },false);
+
+            //     btn.addEventListener("click",()=>{
+            //         console.log("dom 2 级事件绑定定方式 事件2");
+            //     },false);
+
+            // };
+
+            $(()=>{
+                $('#btn').click((e)=>{
+                    console.log("卧槽，我被点击了");
+                    console.log($(this).text());   //jQuery事件处理程序中this执行dom对象,而不是jQuery包装对象
+                });
+                // 执行顺序安装注册顺序执行
+                $('#btn').click((e)=>{
+                    console.log("第二次绑定");
+                    
+                });
+            });
+        </script>
+    </body>
+</html>

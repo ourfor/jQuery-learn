@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>大一统的on事件绑定</title>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+        <script src="../lib/jquery.js"></script>
+    </head>
+    <body>
+
+        <button id="btn1">按钮1</button>
+        <button id="btn2" class="btn">按钮2</button>
+
+        <button class="btn">什么都没有</button>
+        
+        <script>
+            // on事件绑定的语法
+            // $dom.on(event,[selector],[data],fn)
+            $(()=>{
+                // $('#btn1').on('click',2,()=>{
+                //     console.log("Nice to meet you!");
+                // });
+                // $('.btn').on('click',3,()=>{
+                //     console.log("你点击了button类");
+                // });
+
+                // let btn = document.createElement("button");
+                // btn.setAttribute("class","btn");
+                // btn.innerHTML = "按钮3";
+                // $('body').append(btn);
+                
+
+                // jQuery动态创建dom对象
+                let $p = $('<p>123456789</p>').click(2,function(e){
+                    console.log(e.data);
+                });
+                $('body').append($p);
+
+                // 接受dom对象，转化为jQuery对象
+                
+            });
+        </script>
+    </body>
+</html>

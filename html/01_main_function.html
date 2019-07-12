@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery入口函数练习</title>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+        <script src="../lib/jquery.js"></script>
+    </head>
+    <body>
+        <div class="first">我是第一个元素</div>
+        <div id="second">我是第二个元素</div>
+
+        <script>
+            $(function(){
+                let $first = $('.first');
+                let $second = $('#second');
+                console.log('第一个元素的内容为'+ $first.text());
+                console.log('第二个元素的内容为'+ $second.text());
+                
+            });
+        </script>
+    </body>
+</html>

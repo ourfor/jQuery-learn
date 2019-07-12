@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery解绑事件</title>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+        <script src="../lib/jquery.js"></script>
+    </head>
+    <body>
+        <button class="on">按钮1</button>
+        <button class="off">按钮2</button>
+        <list class="list">
+            <li class="list-item">内容1</li>
+            <li class="list-item">内容2</li>
+            <li class="list-item">内容3</li>
+            <li class="list-item">内容4</li>
+        </list>
+        <script>
+            $(()=>{
+                $('.on').on('click',()=>{
+                    console.log("我被点击了");
+                });
+                $('.off').on('click',()=>{
+                    $('.on').off('click');
+
+                    // 解绑所有事件 off()
+                    // 解绑click事件 off('click')
+                })
+            });
+        </script>
+    </body>
+</html>

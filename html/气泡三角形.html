@@ -1,0 +1,53 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <style>
+            body,html{
+                padding: 0;
+                margin: 0;
+                text-align: center;
+            }
+
+            div {
+                margin: 100px auto;
+            }
+
+            .bubble-tip{
+                position: relative;
+            }
+            .bubble-tip::before{
+                content: "该字段必填";
+                display: block;
+                position: absolute;
+                border: 1px solid red;
+                width: 100px;
+                height: 80px;
+                background: red;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bubble-tip">
+            <input id="username" type="text" name="username" placeholder="用户名" />
+        </div>
+        <button id="me">点击我</button>
+        <script>
+            let me = document.getElementById("me");
+            function fill(){
+                console.log("开始了");
+                let username = document.getElementById("username");
+                let content = username.value;
+                if(content == ""){
+                    username.focus();
+                }
+            }
+            me.onclick = fill;
+        </script>
+    </body>
+
+</html>

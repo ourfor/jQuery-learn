@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery绑定事件的三种方法</title>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+        <script src="../lib/jquery.js"></script>
+    </head>
+    <body>
+        <button id="btn">按钮</button>
+        <button id="btn2">按钮</button>
+        <script>
+            $(()=>{
+                $('#btn').bind("click",()=>{
+                    console.log("被你点击了!");
+                });
+                $('#btn').bind("click",222,(e)=>{
+                    console.log("传过来的数据为:" + e.data);
+                });
+                
+                // 可以为多个事件绑定事件处理函数
+                // bind('click focus',)
+
+                // 同时绑定多个事件 事件处理对象
+                $('#btn2').bind({
+                    click: function(){
+                        console.log("被你点击了，傻逼");
+                    },
+                    click: function(){
+                        console.log("哈哈");
+                    },
+                    focus: function(){
+                        console.log("Have a good time");
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
