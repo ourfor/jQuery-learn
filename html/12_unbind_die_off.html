@@ -19,8 +19,13 @@
                 $('.on').on('click',()=>{
                     console.log("我被点击了");
                 });
+                $('.on').on('click.tell',()=>{
+                    console.log("解绑命令事件");
+                })
+
+                // 解绑具体命名空间事件
                 $('.off').on('click',()=>{
-                    $('.on').off('click');
+                    $('.on').off('click.tell');
 
                     // 解绑所有事件 off()
                     // 解绑click事件 off('click')

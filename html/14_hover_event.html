@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>鼠标合成事件</title>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+        <script src="../lib/jquery.js"></script>
+        <style>
+            p{
+                height: 80px;
+                border: 1px dashed black;
+                text-align: center;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .box{
+                position: absolute;
+                overflow: hidden;
+                border: 1px solid black;
+            }
+            .left{
+                height: 200px;
+                width: 100px;
+                float: left;
+            }
+            .aside{
+                height: 200px;
+                width: 100px;
+                float: left;
+            }
+        </style>
+    </head>
+    <body>
+        <p>鼠标事件</p>
+        <div class="box">
+            <div class="left"></div>
+            <div class="aside"></div>
+        </div>
+        
+
+        <script>
+            $(()=>{
+                $('.box').hover(function(e){
+                    $('.aside').css('display','block');
+                },function(e){
+                    $('.aside').css('display','none');
+                });
+            });
+        </script>
+    </body>
+</html>

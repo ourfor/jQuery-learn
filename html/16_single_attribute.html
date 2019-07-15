@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>prop方法和attr方法的区别</title>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+        <script src="../lib/jquery.js"></script>
+    </head>
+    <body>
+
+        <input type="checkbox" value="male" />男
+        
+        <script>
+            $(()=>{
+                //单属性一般建议使用prop方法处理
+                $('input').prop('checked',true);
+                // prop推荐操作
+                // async,autofocus,checked,location,multiple,readOnly,selected
+                $('input').removeAttr('checked');
+                // 移除属性
+                // 自定义属性一般还是用attr(),attr()可以处理所有属性
+            });
+        </script>
+    </body>
+</html>

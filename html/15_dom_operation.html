@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery操作dom元素</title>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+        <script src="../lib/jquery.js"></script>
+    </head>
+    <body>
+        
+        <p k="3">3</p>
+        <p k="4">4</p>
+        <input type="checkbox">男</input>
+        <script>
+            // 接受一个参数读取元素的属性
+            // 接受两个参数设置属性值，第一个为属性名，第二个为属性值，类似函数重载
+            $(()=>{
+                console.log($("p:first").attr('k'));
+                $('p:first').attr('k',"修改");
+                $('p:first').attr('k',null);
+
+                // 获取单属性值通过属性名，通过键值对设置,或者传入属性对象
+                $('p:first').attr({name: "title",value: "10"});
+                
+                // 函数方式处理设置参数
+                $('p').attr('title',function(index,oldAttr){
+                    console.log( oldAttr + ":" + index );
+                })
+                // 添加属性
+                $('input').attr('checked','checked');
+
+                // 移除属性
+                $('input').removeAttr('checked');
+            });
+        </script>
+    </body>
+</html>

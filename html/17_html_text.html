@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>内容操作html()和text()</title>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+        <script src="../lib/jquery.js"></script>
+    </head>
+    <body>
+
+        <p>一个炎热的午后，一本好书</p>
+        <span>出太阳了呢</span>
+        <p>动态创建表格</p>
+        <table>
+            <thead>
+                <th>姓名</th>
+                <th>邮箱</th>
+                <th>年龄</th>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        
+        <script>
+            let data = [{
+                name: "1",
+                age: 2,
+                email: "ourfor.top"
+            },{
+                name: 2,
+                age: 3,
+                email: "text.com"
+            },{
+                name: 3,
+                age: 8,
+                email: "baidu.com"
+            },{
+                name: 4,
+                age: 5,
+                email: "test.org"
+            }];
+            $(()=>{
+                console.log($('p').text());
+                // 同样html()和text()都可以传入回调函数
+                let table = [];
+                data.forEach((item,index,array)=>{
+                    let tmp = "";
+                    tmp += "<tr>";
+                    tmp += "<td>" + item.name + "</td>";
+                    tmp += "<td>" + item.email + "</td>";
+                    tmp += "<td>" + item.age + "</td>";
+                    tmp += "</tr>";
+                    table.push(tmp);
+                });
+                // 设置元素的内部的标签字符串
+                $('table tbody').html(table.join(""));
+                // 获取标签内部的字符串
+                console.log($('table tbody').html());
+                // 传入回调函数
+                // 包含隐式便利
+                $('tbody tr').html(function(index,oldHtml){
+                    console.log(oldHtml);
+                });
+
+
+                // 设置和读取文本
+                $('p').text();
+                // 设置val()方法设置value值
+                
+
+            });
+        </script>
+    </body>
+</html>
